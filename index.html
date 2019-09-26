@@ -7,290 +7,45 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/userAgent/userAgent-1.0.12.min.js"></script>
+<script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/daumtools/1.0.5/web2app.js"></script>
   <body>
+    
+    <button type="button">test123123123<button>
+    
+    <script>
+var ua = util.userAgent();
+var btnEl = document.getElementById('web2appTestBtn');
+var scheme = 'myp';
+var pkgName = 'net.daum.android.air';
+ 
+btnEl.addEventListener('click', function () {
+    var param = 'message=web2app test' +
+            '&url=' + encodeURIComponent('http://www.daum.net') +
+            '&appID=' + encodeURIComponent(document.domain);
+    var urlScheme = 'myp://sendMessage?' + param,
+        intentURI = 'intent://sendMessage?' param + '#Intent;scheme=' + scheme + ';package=net.daum.android.air;end',
+        appStoreURL = ua.os.android ? 'market://details?id=net.daum.android.air' :
+            'itms-apps://itunes.apple.com/kr/app/id373539016?mt=8';
+ 
+    if (ua.platform === 'pc') {
+        alert('모바일 기기에서 이용 가능한 기능입니다.\r\n마이피플이 설치된 스마트폰에서 이용해 주세요.');
+    } else {
+        daumtools.web2app({
+            urlScheme: urlScheme,
+            intentURI: intentURI,
+            storeURL : appStoreURL,
+            appName : '마이피플',
+            onUnsupportedEnvironment: function() {
+                console.log('go to web page'); //example
+            },
+            willInvokeApp: function() {
+                console.log('send click log'); //example
+            }
+         });
+     }
+});
+</script>
 
-    <!-- BEGIN NAVBAR -->
-    <div class="navbar">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <!-- END NAVBAR -->
-
-    <div class="container">
-
-      <!-- HEADER -->
-      <div class="jumbotron">
-        <div class="jumbotron-text">
-          <h1>Top PortPolio</h1>
-          <p>상상을 현실로 구현하고 싶은 개발자 '배성탑'입니다.</p>
-        </div>
-        <div class="jumbotron-social">
-          <ul class="ul-social">
-            <li class="li-social-links">
-              <a class="social" href="https://github.com/toptops" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-            </li>
-          </ul>
-        </div>
-        <div id="down-arrow">
-          <span><a href="#about"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></span>
-        </div>
-      </div>
-      <!-- END HEADER -->
-
-
-
-      <!-- BEGIN ABOUT -->
-      <div class="row white box-shadow">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-            <a class="anchor" name="about"></a>
-            <h2>About</h2>
-          </div>
-          <div class="content-body">
-            <p>아직 내소개 안함</p>
-            <p>내소개만 남음</p>
-          </div>
-        </div>
-        <div class="side-content"></div>
-      </div>
-      <!-- END ABOUT -->
-
-      <!-- BEGIN EXPERIENCE -->
-      <div class="row">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-            <a class="anchor" name="experience"></a>
-            <h2>Experience</h2>
-          </div>
-          <!-- CARD #1 -->
-          <div class="content-body">
-              <div class="card">
-                  <div class="card-header">
-                    <h4>(주)이베리<span class="job-title">2019.08.20 ~ 현재</span></h4>
-                  </div>
-                  <div class="card-content">
-                    <ul>
-                      <li>Push Server</li>
-                      <span class="li-skills2">Java</span>
-                      <span class="li-skills2">Redis</span>
-                      <span class="li-skills2">NodeJs</span>
-                      <span class="li-skills2">Android</span>
-                      <span class="li-skills2">Mysql</span>
-                    </ul>
-                  </div>
-                </div>
-
-            <div class="card">
-              <div class="card-header">
-                <h4>(주)넷앤드 - HIWARE <span class="job-title">2017.09.25 ~ 2019.01.31</span></h4>
-              </div>
-              <div class="card-content">
-                <ul>
-                  <li>Netand 로그인 모듈 1차 로그인 인증 로직 수정</li>
-                  <li>Netand 로그인 모듈 2차 인증 연동 유지보수/개발</li>
-                  <li>Netand 외부 연동 모듈 개발 (이메일, 전문통신)</li>
-                  <li>Netand HI-OTP 솔루션 유지보수/개발</li>
-                  <li>Netand 인증 서버 유지보수</li>
-                  <li>Skill Keywords</li>
-                  <span class="li-skills2">Spring-framework</span> 
-                  <span class="li-skills2">Spring-boot</span>
-                  <span class="li-skills2">Netty-framework</span>
-                  <span class="li-skills2">Object-c</span>
-                  <span class="li-skills2">Android</span>
-                  <span class="li-skills2">Oracle</span>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="side-content"></div>
-      </div>
-      <!-- END EXPERIENCE -->
-
-      <!-- BEGIN EDUCATION -->
-      <div class="row white box-shadow">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-            <a class="anchor" name="education"></a>
-            <h2>Education</h2>
-          </div>
-          <div class="content-body">
-
-            <!-- EDUCATION 1 -->
-            <div class="card">
-              <div class="card-header">
-                <h4>목포대학교 (2011년 - 2017) <span class="job-title">컴퓨터공학 전공(학사)</span></h4>
-              </div>
-              <div class="card-content">
-                <p>- 2014년제 1회 호남 창업역량강화 프로그램 참여(LINC 주관)</p>
-                <p>- 2014년 전남문화산업진흥원 Android App 개발 기초 과정 이수</p>
-                <p>- 2015년 제2회 대학생 앱 개발 챌린지 대회 장려상 - 발표 주제 : 도어락 어플리케이션</p>
-                <p>- 2016년 한국ICT융합사업 빅데이터 웹/앱 양성과정 이수</p>
-              </div>
-            </div>
-         
-          </div>
-        </div>
-        <div class="side-content"></div>
-      </div>
-      <!-- END EDUCATION -->
-
-      <!-- BEGIN PROJECTS -->
-      <div class="row">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-            <a class="anchor" name="projects"></a>
-            <h2>Projects</h2>
-          </div>
-          <div class="content-body">
-            <!-- CARD #2 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="card-header">
-                      <h4>Hiware5 로그인 모듈</h4>
-                    </div>
-                    <div class="card-content">
-                      <p>2018.01 ~ 2019.01</p>
-                    </div>
-                </div>
-                <div class="project-content">
-                  <ul>
-                    <li>로그인 인증 1/2차 중 1차 인증에 대한 로직 분석 및 리팩토링 반영</li>
-                    <li>로그인 인증 2차 인증 연동(OTP, SAML)</li>
-                    <li>로그인 인증 화면 및 인증 로직 유지보수 (각 사이트별)</li>
-                  </ul>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="card-header">
-                      <h4>Hiware5 HI-OTP</h4>
-                    </div>
-                    <div class="card-content">
-                      <p>2017.11 ~ 2018.11</p>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <ul>
-                      <li>HI-OTP Android, iPhone 다국어 패치</li>
-                      <li>HI-OTP Android, iPhone 유지보수 및 배포관리 </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="card-header">
-                      <h4>Hiware5 외부 연동 모듈</h4>
-                    </div>
-                    <div class="card-content">
-                      <p>2018.01 ~ 2019.01</p>
-                    </div>
-                </div>
-                <div class="project-content">
-                  <ul>
-                    <li>솔루션 이메일 연동</li>
-                    <li>Hiware와 타사간 전문 통신 모듈 개발(restApi)</li>
-                    <li>Hiware 인사연동 모듈 개발</li>
-                    <li>Hiware 패스워드 Batch 모듈 개발</li>
-                  </ul>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="card-header">
-                      <h4>Hiware5 인증 서버/h4>
-                    </div>
-                    <div class="card-content">
-                      <p>2018.07 ~ 2018.12</p>
-                    </div>
-                </div>
-                <div class="project-content">
-                  <li>기존 인증 서버 분석 후 Netty-framework로 이전 및 개선</li>
-                </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="side-content-sm"></div>
-      </div>
-      <!-- END PROJECTS -->
-
-      <!-- BEGIN SKILLS -->
-      <div class="row white box-shadow">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-            <a class="anchor" name="skills"></a>
-            <h2>Skills</h2>
-          </div>
-          <div class="content-body">
-            <ul class="ul-skills">
-              <li class="li-skills">JAVA</li>
-              <li class="li-skills">Spring-framework</li>
-              <li class="li-skills">Spring-boot</li>
-              <li class="li-skills">JPA-Hibernate</li>
-              <li class="li-skills">Mysql</li>
-              <li class="li-skills">Oracle</li>
-              <li class="li-skills">Object-c</li>
-              <li class="li-skills">Android</li>
-              <li class="li-skills">Sokcet - Programming</li>
-            </ul>
-          </div>
-        </div>
-        <div class="side-content"></div>
-      </div>
-      <!-- END SKILLS -->
-
-      <!-- BEGIN CONTACT -->
-      
-      <div class="row blue">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-            <a class="anchor" name="contact"></a>
-            <h2 class="white-text">Contact Me</h2>
-          </div>
-          <div class="contact content-body">
-            <form method="POST" action="https://formspree.io/seongtab@naver.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-          </div>
-        </div>
-        <div class="side-content"></div>
-      </div>
-      <!-- END CONTACT -->
-
-      <!-- BEGIN FOOTER -->
-      <div class="row">
-        <div class="side-content"></div>
-        <div class="main-content">
-          <div class="content-header">
-          </div>
-          <div class="content-body" style="line-height: 25%">
-            <p> Thank yo For <a href="https://github.com/toptops/portfolio-template">Outside</a></p>
-            <P> Email : seongtab1@gmail.com, PH : 010-3419-8219</P>
-            <p> Change one's imagination into reality with Tops. Comming soon.</p>
-          </div>
-        </div>
-        <div class="side-content"></div>
-      </div>
-      <!-- END FOOTER -->
-
-    </div>
   </body>
 </html>
