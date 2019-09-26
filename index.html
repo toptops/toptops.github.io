@@ -11,14 +11,15 @@
 <script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/daumtools/1.0.5/web2app.js"></script>
   <body>
     
-    <button type="button">test123123123<button>
+    <button type="button" id="target">test123123123<button>
     
     <script>
+      
 var ua = util.userAgent();
-var btnEl = document.getElementById('web2appTestBtn');
+var btnEl = document.getElementById('target');
 var scheme = 'myp';
 var pkgName = 'net.daum.android.air';
- 
+      
 btnEl.addEventListener('click', function () {
     var param = 'message=web2app test' +
             '&url=' + encodeURIComponent('http://www.daum.net') +
