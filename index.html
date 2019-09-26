@@ -11,7 +11,7 @@
 <script type="text/javascript" src="http://m1.daumcdn.net/svc/original/U03/cssjs/daumtools/1.0.5/web2app.js"></script>
   <body>
     
-    <button type="button" id="target">test123123123<button>
+    <button type="button" id="target">test123123123asdf<button>
     
     <script>
       
@@ -29,22 +29,33 @@ btnEl.addEventListener('click', function () {
         appStoreURL = ua.os.android ? 'market://details?id=net.daum.android.air' :
             'itms-apps://itunes.apple.com/kr/app/id373539016?mt=8';
  
-    if (ua.platform === 'pc') {
-        alert('모바일 기기에서 이용 가능한 기능입니다.\r\n마이피플이 설치된 스마트폰에서 이용해 주세요.');
-    } else {
-        daumtools.web2app({
-            urlScheme: urlScheme,
-            intentURI: intentURI,
-            storeURL : appStoreURL,
-            appName : '마이피플',
-            onUnsupportedEnvironment: function() {
-                console.log('go to web page'); //example
-            },
-            willInvokeApp: function() {
-                console.log('send click log'); //example
-            }
-         });
-     }
+   
+      gtag('event', 'conversion', {
+                'send_to': 'AW-802459525/IVOVCKbvooMBEIWf0v4C',
+                'event_callback': function(cid) {
+                    // if (cid == 'AW-802459525') { 기존 cid를 체크하는 로직이 있었으나 cid를 타지 않으므로 제거.
+                    var time = new Date().getTime();
+                    var ua = daumtools.userAgent();
+                    var androidPackage = 'com.kakao.talk';
+                    var applyScheme = 'https:///m.naver.com' + '?time=' + time;
+                    var intentPrefix = 'kakaotalk://';
+
+                    var web2appOptions = {
+                        urlScheme: applyScheme,
+                        appName: '카카오톡',
+                        intentURI: 'intent://' + applyScheme.split(intentPrefix)[1] + '#Intent;scheme=kakaotalk;package=' + androidPackage + ';end;',
+                        storeURL: ua.os.android ? 'market://details?id=com.kakao.talk' : 'itms-apps://itunes.apple.com/app/id362057947',
+                        willInvokeApp: function() {
+                        },
+                        onUnsupportedEnvironment: function() {
+                            alert('지원하지 않는 기기입니다.');
+                        }
+                    };
+
+                    daumtools.web2app(web2appOptions);
+                }
+            });
+  
 });
 </script>
 
