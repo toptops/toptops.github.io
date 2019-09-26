@@ -17,7 +17,7 @@
   
   <body>
     
-    123213123zzzzzttt
+    zzzgg
     
     <button type="button" id="target">test123123123asdfsfddfafs<button>
     
@@ -30,32 +30,31 @@ var pkgName = 'net.daum.android.air';
       
 btnEl.addEventListener('click', function () {
   debugger;
-   
-      gtag('event', 'conversion', {
-                'send_to': 'AW-802459525/IVOVCKbvooMBEIWf0v4C',
-                'event_callback': function(cid) {
-                    // if (cid == 'AW-802459525') { 기존 cid를 체크하는 로직이 있었으나 cid를 타지 않으므로 제거.
-                    var time = new Date().getTime();
-                    var ua = daumtools.userAgent();
-                    var androidPackage = 'com.kakao.talk';
-                    var applyScheme = 'https:///m.naver.com' + '?time=' + time;
-                    var intentPrefix = 'kakaotalk://';
-  debugger;
-                    var web2appOptions = {
-                        urlScheme: applyScheme,
-                        appName: '카카오톡',
-                        intentURI: 'intent://' + applyScheme.split(intentPrefix)[1] + '#Intent;scheme=kakaotalk;package=' + androidPackage + ';end;',
-                        storeURL: ua.os.android ? 'market://details?id=com.kakao.talk' : 'itms-apps://itunes.apple.com/app/id362057947',
-                        willInvokeApp: function() {
-                        },
-                        onUnsupportedEnvironment: function() {
-                            alert('지원하지 않는 기기입니다.');
-                        }
-                    };
+  
+  // if (cid == 'AW-802459525') { 기존 cid를 체크하는 로직이 있었으나 cid를 타지 않으므로 제거.
+		var time = new Date().getTime();
+		var ua = daumtools.userAgent();
+		var androidPackage = 'com.kakao.talk';
+		var applyScheme = 'https:///m.naver.com' + '?time=' + time;
+		var intentPrefix = 'kakaotalk://';
+		debugger;
+		var web2appOptions = {
+			urlScheme: applyScheme,
+			appName: '카카오톡',
+			intentURI: 'intent://' + applyScheme.split(intentPrefix)[1] + '#Intent;scheme=kakaotalk;package=' + androidPackage + ';end;',
+			storeURL: ua.os.android ? 'market://details?id=com.kakao.talk' : 'itms-apps://itunes.apple.com/app/id362057947',
+			willInvokeApp: function() {
+			},
+			onUnsupportedEnvironment: function() {
+				alert('지원하지 않는 기기입니다.');
+			}
+		};
 
-                    daumtools.web2app(web2appOptions);
-                }
-            });
+		daumtools.web2app(web2appOptions);
+   
+      
+
+ 
   
 });
 </script>
