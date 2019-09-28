@@ -16,10 +16,12 @@ body {
   width: 100%; /* Full width */
   display: flex;
   justify-content: center;
+  height: 50px;
 }
 
 .navbar a {
-  font-weight: 200;
+  font-weight: 400;
+  font-size: 1.5em;
   color: white;
   padding: 14px 16px;
   text-decoration: none;
@@ -33,14 +35,31 @@ body {
 }
 
 /*JUMBOTRON*/
+/*
 .jumbotron {
-  height: 100vh; /*height to 100% of view height*/
+ height: 100vh; 
+  background: #31b0d5; 
+  margin-bottom: 0; 
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: calc(100vh - 50px);
+}
+*/
+
+.jumbotron {
   background: #31b0d5; /*background color to blue*/
   margin-bottom: 0; /*no bottom margin*/
 
   display: flex;
   flex-direction: column;
-}
+
+  height: calc(100vh - 50px);
+  margin-top: 50px;
+  padding: 50px;
+  padding-bottom: 0;
+ }
 
 .jumbotron-text {
   /*TAGLINE UNDER NAME*/
@@ -48,7 +67,7 @@ body {
   font-size: 2em;
   color: white;
   text-align: center;
-  padding-top: 150px;
+  /*padding-top: 150px;*/
 }
 
 .jumbotron-text h1 {
@@ -61,6 +80,13 @@ body {
 
 .jumbotron-text p {
   margin: 0;
+}
+
+.jumbotron-row {
+  text-align: center;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: 10px;
 }
 
 /*SOCIAL LINKS*/
