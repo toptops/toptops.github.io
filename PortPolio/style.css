@@ -169,12 +169,14 @@ h2 {
 }
 
 .content-body {
-  line-height:35%;
+  line-height: 1.5;
   color: rgba(0,0,0,.75);
 }
 
-.content-body p {
-  margin:0;
+.content-body-footer {
+  line-height: 1.5;
+  color: rgba(0,0,0,.75);
+  margin: 0;
 }
 
 /*EDUCATION*/
