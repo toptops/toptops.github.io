@@ -42,6 +42,10 @@ body {
   flex-direction: column;
 }
 
+.jumbotron-image {
+  text-align: center;
+}
+
 .jumbotron-text {
   /*TAGLINE UNDER NAME*/
   font-weight: 400;
