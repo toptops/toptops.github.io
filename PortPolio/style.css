@@ -61,6 +61,10 @@ body {
   padding-bottom: 0;
  }
 
+.jumbotron-image {
+  text-align: center;
+}
+
 .jumbotron-text {
   /*TAGLINE UNDER NAME*/
   font-weight: 400;
